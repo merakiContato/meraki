@@ -1,0 +1,506 @@
+/*------ Fonte importada ------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+/*------ Limpando a formatação da página ------*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*------ Formatações de todo site ------*/
+body{
+    background-color: rgb(235, 234, 234);
+    font-size: 1vw; /*Usando vw em algumas fontes pois assim o tamanho vai se ajustando conforme a tela*/
+}
+
+img{
+    width: 100%;
+}
+
+/*------ Formatação do cabeçalho (Com flex) ------*/
+header{ 
+    width: 100%;
+    height: auto;
+    background-color: #373737;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 10px 5px;
+    font-size: 1.6vw; 
+    position: fixed;
+}
+
+.menu{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.menu a{
+    position: relative;
+    color: #c7c7c7;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.menu a:before { /* Animação da linha embaixo dos links */
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    border-radius: 70px;
+    background-color: #c9c9c9;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+.menu a:hover:before { /* Animação da linha embaixo dos links */
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.logo{
+    margin: 0px 50px;
+    width: 10%;
+}
+
+/*------ Formatação primeira página (Com grid) ------*/
+
+.container1{ 
+    width: 100%;
+    height: auto;
+    background-color: #373737;
+    margin: 0 auto;
+    padding: 150px 20px 80px 20px;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-areas: 
+    "section img2"
+    "section img2"
+    "mensagem mensagem"
+    "seta seta";
+}
+
+.container1 section{ 
+    align-self: center;
+    grid-area: "section";
+    grid-column: section;
+}
+
+.container1 section p, .container1 section ol{
+    margin-left: 90px;
+    color: #ffffff;
+    font-size: 1.7vw;
+}
+
+.imagem1{
+    max-width: 25vw;
+}
+
+.imagem2{
+    width: 72%;
+    grid-area: "img2";
+    grid-column: img2;
+}
+
+.mensagem{
+    color: #ffffff;
+    font-size: 1.4vw;
+    text-align: center;
+    margin-top: 50px;
+    grid-area: "mensagem";
+    grid-column: mensagem;
+    grid-row: mensagem;
+    width: 100%;
+}
+
+.seta{ /* Animação da seta */
+    width: 7vw;
+    margin: 0 auto;
+    grid-area: "seta";
+    grid-column: seta;
+    grid-row: seta;
+    position: relative;
+
+    animation-name: seta;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes seta{ /* Animação da seta */
+    0%{
+        top: 0px;
+    }
+    100%{
+        top: 10px;
+    }
+}
+
+@media (max-width: 520px){ /* Remover a imagem quando a tela estiver muito pequena (Celular) */
+    .container1{
+        grid-template-areas: 
+        "section section"
+        "mensagem mensagem"
+        "seta seta";;
+    }
+
+    .imagem2{
+        display: none;
+    }
+
+}
+
+/*Atenção: Não usei mais @media no decorrer do site pois o flex, e a maneira que fiz, já deixou ele responsivo*/
+
+/*------ Formatação segunda página (Com flex) ------*/
+
+.container2{ 
+    width: 100%;
+    height: auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 100px 20px;
+}
+
+.container2 h1{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 80px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.container2 section{
+    display: flex;
+    flex-wrap: wrap;
+    width: 55%;
+    background-color: #373737;
+    color: #EAE9E9;
+    font-size: 2vw;
+    padding: 50px 30px;
+    text-align: justify;
+    border-radius: 15px;
+    text-indent: 15px;
+}
+
+/*------ Formatação terceira página (Com flex) ------*/
+
+.container3{
+    background-color: #373737;
+    color: #EAE9E9;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto 0;
+}
+
+.container3 h1{
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+    padding: 20px;
+}
+
+.slider {
+    background-color: #373737;
+    height: 95vh;
+    width: 100%;
+    margin: auto 0;
+    padding: 10px;
+}
+
+.slider li{
+    list-style: none;
+    position: absolute;    
+}
+
+.conteudo{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.conteudo img {
+    margin: auto;
+    width: 30%;
+    vertical-align: top;
+}
+
+.conteudo p{
+    width: 40%;
+    margin-right: 8vw;
+    font-size: 2vw;
+    text-indent: 10px;
+    text-align: justify;
+}
+
+.conteudo h2 {
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.conteudo img, .conteudo h2, .conteudo p {
+    opacity: 0;
+    visibility: hidden;
+}
+
+ input {
+    display: none;
+}
+
+.slider label {
+    bottom: -40px;
+    cursor: pointer;
+    margin-left: 50%;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    border-radius: 20px;
+}
+
+label[for=slide1], label[for=slide2], label[for=slide3]{
+    background-color: #f7f7f7;
+}
+
+label[for=slide1]:hover, label[for=slide2]:hover, label[for=slide3]:hover{
+    background-color: #6d6d6d;
+}
+
+.slider li:nth-child(1) label {
+    left: 0px;
+}
+
+.slider li:nth-child(2) label {
+    left: 40px;
+}
+
+.slider li:nth-child(3) label {
+    left: 80px;
+}
+
+.slider li input:checked ~ .conteudo > img, .slider li input:checked ~ .conteudo > p, .slider li input:checked ~ .conteudo > h2 {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+@media (max-width: 520px){ /* Remover a imagem quando a tela estiver muito pequena (Celular) */
+    .slider{
+        height: 65vh;
+    }
+
+}
+
+/*------ Formatação quarta página (Com flex) ------*/
+
+.container4{ 
+    width: 100%;
+    height: auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 50px 20px;
+}
+
+.container4 img{
+    width: 30%;
+}
+
+.container4 section{
+    display: block;
+    flex-wrap: wrap;
+    background-color: #373737;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    width: 320px;
+    height: 420px;
+    margin: 20px;
+    padding: 20px;
+    color: #EAE9E9;
+}
+
+.container4 h2{
+    font-size: x-large;
+    margin: 20px 0px;
+}
+
+.container4 h1{
+    font-size: xx-large;
+    margin: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.container4 p{
+    font-size: 16px;
+    text-align: justify;
+    text-indent: 10px;
+}
+
+.container4 .orcamento{
+    padding-top: 100px;
+}
+
+/*------ Formatação quinta página (Com flex) ------*/
+
+.container5{ 
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    background-color: #373737;
+    padding: 10px;
+}
+
+.container5 img{
+    width: 90%;
+    border-radius: 15px;
+}
+
+.container5 section{
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    margin: 10px;
+    color: #EAE9E9;
+    background-color: #373737;
+    width: 350px;
+}
+
+.container5 h2{
+    font-size: x-large;
+    margin: 10px 0px;
+}
+
+.container5 h1{
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
+    margin: 35px 0px;
+    color: #EAE9E9;
+}
+
+.funcao{
+    width: 50%;
+    padding: 10px;
+    margin: -20px auto;
+    background: #6A6969;
+    position: relative;
+    font-size: 20px;
+    box-shadow: 4px 5px 5px #00000088;
+}
+
+/*------ Formatação rodapé (Com flex) ------*/
+
+.linhavertical {
+    height: 280px;
+    border-right: 2px solid #454545;
+}
+.linhahorizontal {
+    width: 95%;
+    margin: 100px 0px 20px 0px;
+    border: 1px solid #EAE9E9;
+    border-radius: 10px;
+}
+
+footer{ 
+    width: 100%;
+    height: auto;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+    background-color: #373737;
+    color: #EAE9E9;
+    padding-bottom: 25px;
+}
+
+footer h1{
+    text-align: center;
+    font-size: 3vw;
+    margin: 0px 0px 50px 0px;
+}
+
+footer{
+    font-size: 1.4vw;
+}
+
+.rodape1, .rodape2{
+    width: 30%;
+    text-align: center;
+}
+
+.rodape1 p{
+    width: 70%;
+}
+
+.rodape1 img{
+    width: 70%;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.rodape3{
+    width: 30%;
+}
+
+.rodape3 img{
+    width: 15%;
+    margin: 10px;
+}
+
+.rodape3 a{
+    text-decoration: none;
+    color: #EAE9E9;
+}
+
+.dados{
+    display: flex;
+    align-items: center;
+}
+
+input, textarea {
+    width: 90%;
+    height: auto;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    background-color: #373737;
+    color: #EAE9E9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 1vw;
+}
+
+::placeholder{
+    color: #EAE9E9;
+}
+
+button{
+    padding: 8px 20px;
+    font-size: 1.4vw;
+    border-radius: 10px;
+    border: none;
+    background-color: #EAE9E9;
+}
